@@ -9,6 +9,9 @@
 
 This project is an **AI-powered cold email generator** built using **Retrieval-Augmented Generation (RAG), LangChain, and Llama 3**, designed to **automate personalized outreach and improve recruiter response rates**.  
 
+![architecture](https://github.com/user-attachments/assets/6bfd4160-8d27-4b9b-8c10-745460e9f25c)
+
+
 ### 🔥 Features:  
 ✅ **RAG-based AI model**: Enhances contextual relevance in email generation.  
 ✅ **ChromaDB Integration**: Efficient **vector-based candidate-job matching** for skill-based recommendations.  
