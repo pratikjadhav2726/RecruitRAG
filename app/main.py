@@ -1,35 +1,36 @@
 import streamlit as st
-from langchain_community.document_loaders import WebBaseLoader
-
-from chains import Chain
+from agent import AgenticChain
 from portfolio import Portfolio
 from utils import clean_text
 
+st.title("📧 Agentic RAG Cold Email Generator")
 
-def create_streamlit_app(llm, portfolio, clean_text):
-    st.title("📧 Cold Mail Generator")
-    url_input = st.text_input("Enter a URL:", value="https://jobs.nike.com/job/R-33460")
-    submit_button = st.button("Submit")
+agent_chain = AgenticChain()
 
-    if submit_button:
-        try:
-            loader = WebBaseLoader([url_input])
-            data = clean_text(loader.load().pop().page_content)
-            portfolio.load_portfolio()
-            jobs = llm.extract_jobs(data)
-            for job in jobs:
-                skills = job.get('skills', [])
-                links = portfolio.query_links(skills)
-                email = llm.write_mail(job, links)
-                st.code(email, language='markdown')
-        except Exception as e:
-            st.error(f"An Error Occurred: {e}")
+url_input = st.text_input("Enter Job Posting URL")
+submit_button = st.button("Submit")
 
+if submit_button:
+    try:
+        job_text = agent_chain.run_agent(f"Scrape job details from this URL: {url_input} and with that all scraped data extract job details")
+        # st.write("**Extracted Job Description:**", job_text)
+        # print("hi1",type(job_text),job_text)
+        # portfolio= Portfolio()
+        # st.write("hi1",job_text)
+        # job_details = agent_chain.run_agent(f"{job_text}")
+        # st.write("**Parsed Job Details:**", job_details)
+        # print("Here are the job details")
+        # skills = job_details.get('skills', [])
+        # links = portfolio.query_links(skills)
+        # st.write("Here are the links for portfolio",links)
 
-if __name__ == "__main__":
-    chain = Chain()
-    portfolio = Portfolio()
-    st.set_page_config(layout="wide", page_title="Cold Email Generator", page_icon="📧")
-    create_streamlit_app(chain, portfolio, clean_text)
+        email = agent_chain.run_agent(f"Generate a cold email for this job: {job_text}")
+        st.write("**Generated Cold Email:**", job_text)
 
+        # # feedback = st.text_area("Enter Recruiter Feedback")
+        # if st.button("Refine Email"):
+        #     refined_email = agent_chain.run_agent(f"Refine this email: {email}\nFeedback: {feedback}")
+        #     st.write("**Refined Cold Email:**", refined_email)
 
+    except Exception as e:
+        st.error(f"An Error Occurred: {e}")
