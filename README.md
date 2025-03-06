@@ -78,19 +78,36 @@ The application will be accessible at `http://localhost:8501/`.
 ## 📊 Example Output  
 
 ```plaintext
-Subject: Exciting Opportunity at [Company Name] - [Job Role]
+Subject: Expert Machine Learning Solutions for Your Business
 
-Dear [Candidate Name],
+Dear Hiring Manager,
 
-I came across your profile and was truly impressed by your experience in [specific skills]. 
-We are currently hiring for a [Job Role] at [Company Name], and I believe your background 
-aligns well with what we are looking for.
+I came across the job description for a Senior Machine Learning Engineer at your organization and was impressed by the scope of the role. As a Business Development Executive at AtliQ, I believe our team can provide the expertise and support you need to develop and implement integrated software algorithms that structure, analyze, and leverage data in product and systems applications.
 
-Would love to connect and discuss further. Let me know if you're open to a quick chat!
+At AtliQ, we have a proven track record of empowering enterprises with tailored solutions that foster scalability, process optimization, cost reduction, and heightened overall efficiency. Our team of experts has extensive experience in machine learning, data science, and software engineering, with a strong focus on developing and communicating descriptive, diagnostic, predictive, and prescriptive insights.
 
-Best,  
-[Your Name]  
-[Your Company]  
+Our capabilities align perfectly with your requirements, including:
+
+* Machine learning algorithms and data science methods
+* Data wrangling, feature engineering, and time series forecasting
+* Natural language processing, computer vision, and deep learning methods
+* Solution design, technical design, and hyperparameter tuning
+* Cloud technologies, including Google Cloud, AWS, and distributed systems
+
+I'd like to highlight some of our relevant portfolio work:
+* https://example.com/ml-python-portfolio (Machine Learning and Python solutions)
+* https://example.com/java-portfolio (Java-based solutions)
+* https://example.com/ml-python-portfolio (Machine Learning and Python solutions for data science and analytics)
+
+Our team is well-versed in a range of technologies, including Java, Spark, Scala, Python, R, SAS, SQL, and more. We're confident that our expertise can help you develop and evaluate algorithms to improve product/system performance, quality, data management, and accuracy.
+
+I'd love to schedule a call to discuss how AtliQ can support your machine learning initiatives and help you achieve your business goals. Please let me know if you're interested, and we can schedule a time that suits you.
+
+Best regards,
+
+Mohan
+Business Development Executive
+AtliQ 
 ```
 
 ---
