@@ -1,5 +1,5 @@
 
-# 🚀 Cold Email Generator with RAG  
+# 🚀 Cold Email Generator with Agentic RAG  
 
 ### AI-Powered Cold Email Generation using RAG, LangChain, and Llama 3  
 
