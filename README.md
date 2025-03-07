@@ -9,6 +9,11 @@
 
 This project is an **AI-powered cold email generator** built using **Retrieval-Augmented Generation (RAG), LangChain, and Llama 3**, designed to **automate personalized outreach and improve recruiter response rates**.  
 
+### There are three different approaches, implemented on separate branches:
+####  1.  Basic RAG with LangChain – Uses standard retrieval-augmented generation.
+#### 	2.	Agentic RAG with LangChain Agents – Implements autonomous agent behavior for query understanding and email construction.
+####  3.	Agentic RAG with LangGraph – Adds retry mechanisms using coherence and RAG score checks for enhanced precision.
+
 ![architecture](https://github.com/user-attachments/assets/6bfd4160-8d27-4b9b-8c10-745460e9f25c)
 
 
@@ -17,6 +22,28 @@ This project is an **AI-powered cold email generator** built using **Retrieval-A
 ✅ **ChromaDB Integration**: Efficient **vector-based candidate-job matching** for skill-based recommendations.  
 ✅ **Streamlit UI**: Recruiters can generate tailored cold emails **in under 30 seconds**, boosting efficiency by **40%**.  
 ✅ **Enhanced Engagement**: Personalized AI-generated emails improve recruiter response rates **by 30%**.  
+
+### Branches and Approaches
+
+Branch	Approach	Key Features
+Cold-email-generator	Basic RAG with LangChain	Simple RAG-based retrieval and email generation.
+Agentic-Rag-LangChain-Agents	Agentic RAG with LangChain Agents	Uses agents for query understanding, construction, translation, routing, and retrieval.
+Agentic-Rag_LangGraph	Agentic RAG with LangGraph	Adds coherence and RAG score validation with retries for improved accuracy.
+
+#### 1️⃣ Basic RAG with LangChain (Cold-email-generator branch)
+	•	Uses Retrieval-Augmented Generation (RAG) for contextual relevance.
+	•	Basic retrieval and email generation with no agent involvement.
+
+#### 2️⃣ Agentic RAG with LangChain Agents (Agentic-Rag-LangChain-Agents branch)
+	•	Introduces LangChain agents for query understanding and multi-step execution.
+	•	Automates data retrieval, filtering, and email generation dynamically.
+
+##### 3️⃣ Agentic RAG with LangGraph (Agentic-Rag_LangGraph branch)
+	•	Implements LangGraph for structured execution.
+	•	Coherence and RAG Score Validation:
+	•	If coherence < 0.8, the job extraction step retries.
+	•	If RAG score < 0.8, retrieval step retries before generating the email.
+
 
 ---
 
@@ -30,6 +57,18 @@ This project is an **AI-powered cold email generator** built using **Retrieval-A
 
 ---
 
+## 🎯 How It Works  
+
+1. **User Input**: Recruiters enter details about the candidate, job role, and desired personalization.  
+2. **Data Retrieval**: ChromaDB fetches relevant job-candidate matches using **vector embeddings**.  
+3. **RAG-powered Generation**: LangChain + Llama 3 generate **highly personalized** cold emails.
+4. **Agentic RAG and LangGraph Versions**:
+	•	LangChain Agents dynamically route and process retrieval.
+	•	LangGraph ensures adaptive execution, retrying steps if coherence or RAG scores are low. 
+5. **UI Display**: The generated email is displayed in **Streamlit**, ready to be copied and sent.
+   
+---
+
 ## 📥 Setup
 
 ### Clone the Repository
@@ -37,6 +76,25 @@ This project is an **AI-powered cold email generator** built using **Retrieval-A
 ```bash
 git clone https://github.com/your-username/cold-email-generator-rag.git
 cd cold-email-generator-rag
+```
+### Checkout a Specific Branch
+
+### For basic RAG:
+
+```bash 
+git checkout Cold-email-generator
+```
+
+### For Agentic RAG with LangChain Agents:
+
+```bash 
+git checkout Agentic-Rag-LangChain-Agents
+```
+
+### For Agentic RAG with LangGraph:
+
+```bash 
+git checkout Agentic-Rag_LangGraph
 ```
 
 ### Create and Activate a Virtual Environment
@@ -63,15 +121,7 @@ streamlit run app.py
 ```
 
 The application will be accessible at `http://localhost:8501/`.  
-
----
-
-## 🎯 How It Works  
-
-1. **User Input**: Recruiters enter details about the candidate, job role, and desired personalization.  
-2. **Data Retrieval**: ChromaDB fetches relevant job-candidate matches using **vector embeddings**.  
-3. **RAG-powered Generation**: LangChain + Llama 3 generate **highly personalized** cold emails.  
-4. **UI Display**: The generated email is displayed in **Streamlit**, ready to be copied and sent.  
+ 
 
 ---
 
@@ -143,10 +193,3 @@ This project is licensed under the **MIT License** – see the [LICENSE](LICENSE
 
 ⭐ **If you like this project, don't forget to give it a star!** ⭐
 ```
-
-### 🔹 **What's Fixed?**
-✅ Proper separation of Bash code blocks to avoid nested formatting issues.  
-✅ Well-structured **README** with headers, code blocks, and proper spacing.  
-✅ **Improved readability** with bullet points and section titles.  
-
-This **README.md** is **GitHub-ready** 🚀! Just replace **your-username** and **your-contact-info** before uploading. Let me know if you need further refinements! 😊
