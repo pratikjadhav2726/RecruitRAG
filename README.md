@@ -117,7 +117,7 @@ pip install -r requirements.txt
 Launch the **Streamlit** UI:  
 
 ```bash
-streamlit run app.py
+streamlit run app/main.py
 ```
 
 The application will be accessible at `http://localhost:8501/`.  
