@@ -1,0 +1,10 @@
+langchain-groq==0.2.5
+langchain-core==0.3.43
+langchain-community==0.3.19
+langgraph==0.2.20
+streamlit==1.25.0
+python-dotenv==1.0.0
+pandas==1.5.3
+chromadb==0.4.3
+uuid
+re
