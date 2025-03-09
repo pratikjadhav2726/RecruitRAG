@@ -38,7 +38,7 @@ Agentic-Rag_LangGraph	Agentic RAG with LangGraph	Adds coherence and RAG score va
 	•	Introduces LangChain agents for query understanding and multi-step execution.
 	•	Automates data retrieval, filtering, and email generation dynamically.
 
-##### 3️⃣ Agentic RAG with LangGraph (Agentic-Rag_LangGraph branch)
+#### 3️⃣ Agentic RAG with LangGraph (Agentic-Rag_LangGraph branch)
 	•	Implements LangGraph for structured execution.
 	•	Coherence and RAG Score Validation:
 	•	If coherence < 0.8, the job extraction step retries.
