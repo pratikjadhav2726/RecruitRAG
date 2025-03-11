@@ -6,10 +6,10 @@ from utils import clean_text
 
 st.title("📧 Agentic RAG Cold Email Generator")
 
-agent_chain = AgenticChain()
+# agent_chain = AgenticChain()
 
 def create_streamlit_app():
-    st.title("📧 Cold Mail Generator with LangGraph")
+    # st.title("📧 Cold Mail Generator with LangGraph")
     url_input = st.text_input("Enter a URL:", value="https://jobs.nike.com/job/R-33460")
     submit_button = st.button("Submit")
 
