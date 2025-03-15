@@ -25,10 +25,11 @@ This project is an **AI-powered cold email generator** built using **Retrieval-A
 
 ### Branches and Approaches
 
-Branch	Approach	Key Features
-Cold-email-generator	Basic RAG with LangChain	Simple RAG-based retrieval and email generation.
-Agentic-Rag-LangChain-Agents	Agentic RAG with LangChain Agents	Uses agents for query understanding, construction, translation, routing, and retrieval.
-Agentic-Rag_LangGraph	Agentic RAG with LangGraph	Adds coherence and RAG score validation with retries for improved accuracy.
+| Branch                          | Approach                          | Key Features                                                                            |
+|---------------------------------|-----------------------------------|-----------------------------------------------------------------------------------------|
+| `Cold-email-generator`          | Basic RAG with LangChain          | Simple RAG-based retrieval and email generation.                                        |
+| `Agentic-Rag-LangChain-Agents`  | Agentic RAG with LangChain Agents | Uses agents for query understanding, construction, translation, routing, and retrieval. |
+| `Agentic-Rag_LangGraph`         | Agentic RAG with LangGraph        | Adds coherence and RAG score validation with retries for improved accuracy.             |
 
 #### 1️⃣ Basic RAG with LangChain (Cold-email-generator branch)
 	•	Uses Retrieval-Augmented Generation (RAG) for contextual relevance.
