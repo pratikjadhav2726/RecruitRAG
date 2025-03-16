@@ -10,9 +10,17 @@ from utils import clean_text
 from langchain_community.document_loaders import WebBaseLoader
 import streamlit as st
 from typing import Dict, List, Union,Any
+from pydantic import BaseModel, ValidationError
 
 # Load environment variables
 load_dotenv()
+
+
+class JobPosting(BaseModel):
+    role: str
+    experience: str
+    skills: List[str] = []
+    description: str = None
 
 class ColdEmailGraph:
     def __init__(self):
@@ -41,15 +49,20 @@ class ColdEmailGraph:
         try:
             json_parser = JsonOutputParser()
             jobs = json_parser.parse(res.content)
-        except OutputParserException:
-            return {**state,"jobs": [], "error": "Context too big. Unable to parse jobs."}
-        return {**state,"jobs": jobs if isinstance(jobs, list) else [jobs]}
+            # print(jobs)
+            validated_jobs = [JobPosting(**job).dict() for job in (jobs if isinstance(jobs, list) else [jobs])]
+            # print("v",validated_jobs)
+        except (OutputParserException, ValidationError) as e:
+            print(f"Parsing/Validation error: {e}")
+            return {**state, "jobs": []}
+        return {**state,"jobs": validated_jobs}
 
     def check_coherence(self, state):
         """Check coherence of the extracted job descriptions."""
         jobs = state["jobs"]
         coherent_jobs = [job for job in jobs if "role" in job and "description" in job]
         coherence_score = len(coherent_jobs) / max(len(jobs), 1)  # Simple ratio-based score
+        # print(coherence_score)
 
         return {**state, "jobs": coherent_jobs, "coherence_score": coherence_score}
 
@@ -91,17 +104,23 @@ class ColdEmailGraph:
             res = chain_email.invoke({"job_description": str(job), "link_list": job["links"]})
             emails.append(res.content)
         return {"emails": emails}
-
+    def log_wrapper(self,node_name, node_func):
+        def wrapped(state: Dict[str, Any]):
+            print(f"Executing Node: {node_name}")
+            new_state = node_func(state)
+            # print(f"Node '{node_name}' Output State:", new_state)
+            return new_state
+        return wrapped
     def build_graph(self):
         """Construct the LangGraph pipeline with conditional retries."""
         graph = StateGraph(Dict[str, Any])  # Define state type
-
+    
         # Add nodes
-        graph.add_node("extract_jobs", self.extract_jobs)
-        graph.add_node("check_coherence", self.check_coherence)
-        graph.add_node("retrieve_links", self.retrieve_links)
-        graph.add_node("check_rag_score", self.check_rag_score)
-        graph.add_node("write_mail", self.write_mail)
+        graph.add_node("extract_jobs", self.log_wrapper("extract_jobs", self.extract_jobs))
+        graph.add_node("check_coherence", self.log_wrapper("check_coherence", self.check_coherence))
+        graph.add_node("retrieve_links", self.log_wrapper("retrieve_links", self.retrieve_links))
+        graph.add_node("check_rag_score", self.log_wrapper("check_rag_score", self.check_rag_score))
+        graph.add_node("write_mail", self.log_wrapper("write_mail", self.write_mail))
 
         # Define main flow
         graph.set_entry_point("extract_jobs")
