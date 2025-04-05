@@ -15,7 +15,8 @@ This project is an **AI-powered cold email generator** built using **Retrieval-A
 ####  3.	Agentic RAG with LangGraph – Adds retry mechanisms using coherence and RAG score checks for enhanced precision.
 
 ![architecture](https://github.com/user-attachments/assets/6bfd4160-8d27-4b9b-8c10-745460e9f25c)
-<img width="370" alt="image" src="https://github.com/user-attachments/assets/2ae71fdb-b133-4108-aadd-8475e1410887" />
+<img width="800" alt="image" src="https://github.com/user-attachments/assets/6196daca-c52c-4dc1-99bc-c0ef25e88e2c" style="float: left; margin-right: 15px;"/>
+
 
 
 ### 🔥 Features:  
@@ -69,7 +70,8 @@ This project is an **AI-powered cold email generator** built using **Retrieval-A
 	•	LangChain Agents dynamically route and process retrieval.
 	•	LangGraph ensures adaptive execution, retrying steps if coherence or RAG scores are low. 
 5. **UI Display**: The generated email is displayed in **Streamlit**, ready to be copied and sent.
-   
+
+<img width="370" alt="image" src="https://github.com/user-attachments/assets/2ae71fdb-b133-4108-aadd-8475e1410887" style="float: left; margin-right: 15px;" />
 ---
 
 ## 📥 Setup
