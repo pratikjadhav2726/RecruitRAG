@@ -2,3 +2,4 @@ app/__pycache__/chains.cpython-313.pyc
 app/__pycache__/portfolio.cpython-313.pyc
 app/__pycache__/utils.cpython-313.pyc
 vectorstore/74fa6e46-dc2b-430f-9914-5a16fa3bc8b3/length.bin
+app/.env
