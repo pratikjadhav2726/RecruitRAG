@@ -25,6 +25,8 @@ This project is an **AI-powered cold email generator** built using **Retrieval-A
 ✅ **Streamlit UI**: Recruiters can generate tailored cold emails **in under 30 seconds**, boosting efficiency by **40%**.  
 ✅ **Enhanced Engagement**: Personalized AI-generated emails improve recruiter response rates **by 30%**.  
 
+### MCP Server Integration: We plan to integrate Model Context Protocol (MCP) server capabilities to enhance RecruitRAG’s functionality. This will enable seamless integration with external data sources, third-party services, messaging platforms, scheduling tools, and advanced analytics. These additions will empower dynamic, context-aware interactions across multiple channels, improving both efficiency and user experience.
+
 ### Branches and Approaches
 
 | Branch                          | Approach                          | Key Features                                                                            |
