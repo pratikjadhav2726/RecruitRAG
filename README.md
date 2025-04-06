@@ -33,7 +33,7 @@ We plan to integrate Model Context Protocol (MCP) server capabilities to enhance
 | Branch                          | Approach                          | Key Features                                                                            |
 |---------------------------------|-----------------------------------|-----------------------------------------------------------------------------------------|
 | `Cold-email-generator`          | Basic RAG with LangChain          | Simple RAG-based retrieval and email generation.                                        |
-| `Agentic-Rag-LangChain-Agents`  | Agentic RAG with LangChain Agents | Uses agents for query understanding, construction, translation, routing, and retrieval. |
+| `Agentic-Rag-LangChain-Agents`  | Agentic RAG with LangChain Agents | Uses agents for dynamic tool selection. |
 | `Agentic-Rag_LangGraph`         | Agentic RAG with LangGraph        | Adds coherence and RAG score validation with retries for improved accuracy.             |
 
 #### 1️⃣ Basic RAG with LangChain (Cold-email-generator branch)
